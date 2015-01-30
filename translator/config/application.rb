@@ -8,6 +8,10 @@ Bundler.require(*Rails.groups)
 
 module Translator
   class Application < Rails::Application
+    # Set translator backend for I18n
+    require "translator"
+    config.i18n.backend = Translator::Backend.new
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
