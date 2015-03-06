@@ -41,6 +41,7 @@ gem 'spring',        group: :development
 gem 'redis', '~> 3.0.3'
 gem 'sinatra', '~> 1.4.2', require: 'sinatra/base'
 gem 'haml', '~> 4.0.2'
+gem 'devise', '~> 3.0.0.rc'
 
 group :test do
     gem 'capybara', '~> 2.0.0'

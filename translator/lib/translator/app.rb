@@ -1,6 +1,11 @@
 module Translator
 
     class App < Sinatra::Base
+
+        before do
+            env["warden"].authenticate!(scope: "admin")
+        end
+        
         set :environment, Rails.env
         enable :inline_templates
 
@@ -29,7 +34,6 @@ module Translator
             translations.each do |key, value|
                 translations[key] = ActiveSupport::JSON.decode(value) rescue nil
             end
-
         end
 
         # Get all keys for a locale. Remove the locale from the key and sort them.

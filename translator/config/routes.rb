@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  mount Translator::App, at: "/translator" 
+  devise_for :admins
+  mount Translator::App, at: "/translator"
+  root to: "home#index"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
